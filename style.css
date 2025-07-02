@@ -1,0 +1,66 @@
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+}
+
+header.hero {
+  background: #2b3f5c;
+  color: #fff;
+  text-align: center;
+  padding: 2em;
+}
+
+.cta-buttons button {
+  margin: 1em 0.5em;
+  padding: 0.75em 1.5em;
+  border: none;
+  background: #ff9800;
+  color: white;
+  cursor: pointer;
+}
+
+section {
+  padding: 2em;
+  background: #fff;
+  margin: 1em auto;
+  max-width: 1000px;
+  border-radius: 10px;
+}
+
+ul {
+  list-style-type: "✅ ";
+  padding-left: 1.5em;
+}
+
+.property-card {
+  border: 1px solid #ccc;
+  padding: 1em;
+  border-radius: 8px;
+  margin: 1em 0;
+  background: #fafafa;
+}
+
+.property-card img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 0.75em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background: #2b3f5c;
+  color: #fff;
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
