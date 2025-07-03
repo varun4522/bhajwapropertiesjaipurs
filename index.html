@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bajwa Properties Jaipur</title>
+  <style>
+    /* ---------- VARIABLES ---------- */
+    :root {
+      --primary: #ff6f61;
+      --secondary: #4f46e5;
+      --light: #f9f9f9;
+      --dark: #333;
+      --accent: #ffece8;
+      --radius: 6px;
+      --transition: 0.3s;
+      --max-width: 1200px;
+    }
+
+    /* ---------- RESET & BASE ---------- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: var(--dark);
+      background: var(--light);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container {
+      width: 90%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    button {
+      cursor: pointer;
+      border: none;
+      border-radius: var(--radius);
+      transition: background var(--transition);
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      background: var(--light);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li a {
+      font-weight: 500;
+      padding: 0.5rem;
+      border-radius: var(--radius);
+    }
+    nav ul li a:hover {
+      background: var(--accent);
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    .hero .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .hero .btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      background: var(--light);
+      color: var(--dark);
+      border-radius: var(--radius);
+    }
+    .hero .btn.primary {
+      background: #fff;
+      color: var(--primary);
+    }
+    .hero .btn:hover {
+      opacity: 0.9;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      padding: 3rem 0;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--secondary);
+    }
+    .about p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+    .about ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .about ul li {
+      background: #fff;
+      padding: 1rem;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      font-weight: 500;
+    }
+
+    /* ---------- SERVICES ---------- */
+    .services .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 1.5rem;
+    }
+    .services .card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: transform var(--transition);
+    }
+    .services .card:hover {
+      transform: translateY(-4px);
+    }
+    .services .card h3 {
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+    }
+
+    /* ---------- PROPERTIES ---------- */
+    .properties .filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .properties .filter select {
+      padding: 0.5rem;
+      border-radius: var(--radius);
+      border: 1px solid #ccc;
+      min-width: 120px;
+    }
+    .properties .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+    }
+    .properties .card {
+      background: #fff;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform var(--transition);
+    }
+    .properties .card:hover {
+      transform: translateY(-4px);
+    }
+    .properties .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .properties .card .info {
+      padding: 1rem;
+    }
+    .properties .card .info h4 {
+      margin-bottom: 0.5rem;
+      color: var(--secondary);
+    }
+    .properties .card .info p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .properties .card .info .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.9rem;
+      border-radius: var(--radius);
+    }
+
+    /* ---------- WHY CHOOSE US ---------- */
+    .why .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .why .item {
+      background: var(--accent);
+      padding: 1rem;
+      border-radius: var(--radius);
+    }
+    .why .item h4 {
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact form {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      display: grid;
+      gap: 1rem;
+    }
+    .contact form input,
+    .contact form textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: var(--radius);
+      width: 100%;
+      font-size: 1rem;
+    }
+    .contact form button {
+      padding: 0.75rem;
+      background: var(--secondary);
+      color: #fff;
+      font-size: 1rem;
+    }
+    .contact .info {
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    /* ---------- TESTIMONIALS ---------- */
+    .testimonials .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+    }
+    .testimonials .card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .testimonials .card p {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    .testimonials .card h5 {
+      text-align: right;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* ---------- BLOG ---------- */
+    .blog .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+    }
+    .blog .card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .blog .card h4 {
+      margin-bottom: 0.75rem;
+      color: var(--secondary);
+    }
+    .blog .card p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .blog .card a {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+
+    /* ---------- RESPONSIVE NAV ---------- */
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      nav { display: none; }
+      nav.open { display: block; }
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    /* Reviews Section */
+  #reviews {
+    background: #000;
+    color: #fff;
+    padding: 3rem 1rem;
+    border-radius: 8px;
+    margin: 5rem 165px;
+  }
+  #reviews h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #ff6f61;
+  }
+  #reviews .tagline {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-style: italic;
+    color: #ccc;
+  }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .review-card {
+    background: #111;
+    padding: 1rem;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .review-card .name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .review-card .stars {
+    color: #ffcc00;
+    margin-bottom: 0.75rem;
+  }
+  .review-card .text {
+    flex-grow: 1;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  /* Responsive Breakpoints */
+  @media (max-width: 1024px) {
+    .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .reviews-grid { grid-template-columns: 1fr; }
+  }
+
+  /*image*/
+  .properties .card figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.properties .card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.properties .card .agent-name {
+  text-align: center;
+  padding: 0.5rem 0;
+  font-weight: 600;
+  color: var(--secondary);
+  background: #f9f9f9;
+}
+
+  </style>
+
+  <script>
+// Data array of reviews
+const reviews = [
+  {
+    name: "Dinesh Khandelwal – Jaipur",
+    rating: 5,
+    text: "Very professional team. I found the perfect home in my budget with clear legal documentation. Highly recommend Bajwa Properties for first-time buyers!"
+  },
+  {
+    name: "Rajesh Bhatia",
+    rating: 4,
+    text: "I’ve been investing in property for over a decade, and I must say Bajwa Properties has some of the best plots and flats in prime locations. Transparent dealings and courteous staff!"
+  },
+  {
+    name: "Nishant Bansal",
+    rating: 5,
+    text: "Smooth experience from site visit to registration. Just a minor delay in paperwork, but the team kept me informed throughout. Overall, a great purchase experience."
+  },
+  {
+    name: "Bhawani Singh Rundal",
+    rating: 4,
+    text: "What sets them apart is their honesty. I bought a plot through Bajwa Properties and the entire process was hassle-free. Their team patiently answered all my queries."
+  },
+  {
+    name: "Karan Chordia",
+    rating: 5,
+    text: "Good value for money. The location they suggested has seen a price appreciation already. A reliable name in Jaipur real estate."
+  },
+  {
+    name: "Gaurav Sharma",
+    rating: 5,
+    text: "The Bajwa team made my first real estate investment journey very comfortable. Clear communication and no hidden charges. Thank you!"
+  },
+  {
+    name: "Gurpreet Singh",
+    rating: 4,
+    text: "Extremely helpful and friendly team. They ensured all documentation was handled properly and helped me with loan support too."
+  },
+  {
+    name: "Mahesh Jangid",
+    rating: 5,
+    text: "I dealt with many agents before, but Bajwa Properties stood out for their professionalism and transparency. Will definitely recommend to friends and family."
+  },
+  {
+    name: "Rajesh Soni",
+    rating: 5,
+    text: "Their customer service is top-notch. Even after the deal was closed, they supported me in registration and utility connections. Truly dependable."
+  },
+  {
+    name: "Kailash Yadav",
+    rating: 5,
+    text: "Very satisfied with my experience. Got a good deal on a ready-to-move-in flat. No brokerage tricks or price inflation. Honest people!"
+  }
+];
+
+// Render reviews into the grid
+function renderReviews() {
+  const grid = document.querySelector('.reviews-grid');
+  reviews.forEach(({name, rating, text}) => {
+    const card = document.createElement('div');
+    card.className = 'review-card';
+
+    // Name
+    const nm = document.createElement('div');
+    nm.className = 'name';
+    nm.textContent = name;
+    card.appendChild(nm);
+
+    // Stars
+    const stars = document.createElement('div');
+    stars.className = 'stars';
+    for(let i = 1; i <= 5; i++) {
+      stars.innerHTML += (i <= rating) ? '★' : '☆';
+    }
+    card.appendChild(stars);
+
+    // Text
+    const txt = document.createElement('div');
+    txt.className = 'text';
+    txt.textContent = text;
+    card.appendChild(txt);
+
+    grid.appendChild(card);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', renderReviews);
+</script>
+
+</head>
+<body>
+  <header>
+    <div class="container nav-wrapper">
+      <div class="logo">Bajwa Properties</div>
+      <button class="menu-toggle">☰</button>
+      <nav>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#properties">Properties</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="hero">
+    <div class="container">
+      <h1>Bajwa Properties Jaipur</h1>
+      <p>Discover verified properties, expert advice, and unmatched value — all in one place.</p>
+      <div class="btns">
+        <button class="btn primary">🔍 Browse Properties</button>
+        <button class="btn">📞 Get Free Consultation</button>
+        <button class="btn">🏢 About Us</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about container">
+    <h2>Your Trusted Real Estate Partner</h2>
+    <p>We are a professional and passionate real estate company with 20+ years of experience committed to helping individuals and businesses find their ideal property. Whether you're looking to buy, sell, rent, or invest — we bring deep market insights, personalized service, and a smooth experience from start to finish.</p>
+    <ul>
+      <li>20+ years industry experience</li>
+      <li>500+ happy clients</li>
+      <li>Verified listings</li>
+      <li>End-to-end assistance</li>
+    </ul>
+  </section>
+
+  <section id="services" class="services container">
+    <h2>Our Services</h2>
+    <div class="grid">
+      <div class="card"><h3>Buy Property</h3><p>Find residential, commercial, and agricultural properties at prime locations.</p></div>
+      <div class="card"><h3>Sell Property</h3><p>List with us and get maximum exposure, quick leads, and the best price.</p></div>
+      <div class="card"><h3>Rent/Lease</h3><p>From homes to office spaces, get trusted tenants and legal support.</p></div>
+      <div class="card"><h3>Investment Advice</h3><p>Grow wealth with high-return, risk-evaluated property investments.</p></div>
+      <div class="card"><h3>Valuation & Legal</h3><p>Accurate property assessment & legal checks for peace of mind.</p></div>
+    </div>
+  </section>
+
+  <section id="properties" class="properties container">
+    <h2>Our Properties</h2>
+    <div class="filter">
+      <select><option>Location: Jaipur</option></select>
+      <select><option>Type: Residential</option><option>Commercial</option><option>Land</option></select>
+      <select><option>Status: Ready to Move</option><option>Under Construction</option></select>
+    </div>
+  <div class="grid">
+    <!-- Card 1 -->
+    <div class="card">
+      <figure>
+        <img src="photot1.jpg" alt="Sukhdev Singh">
+        <figcaption class="agent-name">Sukhdev Singh</figcaption>
+      </figure>
+      <div class="info">
+        <h4>SHOP NO - 8, Kala Market</h4>
+        <p>Vaishali Estate, Gandhi Path West, Jaipur</p>
+        <a href="tel:+919821382222" class="btn">Contact Agent</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <figure>
+        <img src="photo2.jpg" alt="Jaspreet Singh">
+        <figcaption class="agent-name">Jaspreet Singh</figcaption>
+      </figure>
+      <div class="info">
+        <h4>SHOP NO - 8, Kala Market</h4>
+        <p>Vaishali Estate, Gandhi Path West, Jaipur</p>
+        <a href="tel:+919950840007" class="btn">Contact Agent</a>
+      </div>
+    </div>
+
+    <!-- duplicate more cards as needed -->
+  </div>
+
+  </section>
+
+  <section id="why" class="why container">
+    <h2>Why Choose Us</h2>
+    <div class="grid">
+      <div class="item"><h4>🏆 Transparent Deals</h4><p>JDA approved</p></div>
+      <div class="item"><h4>✅ Verified Listings</h4></div>
+      <div class="item"><h4>💬 Personalized Help</h4></div>
+      <div class="item"><h4>📍 Local Experts</h4></div>
+      <div class="item"><h4>📑 Documentation</h4><p>End-to-end support</p></div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact container">
+    <h2>We’re Just a Call Away</h2>
+    <form onsubmit="return false;">
+      <input type="text" placeholder="Name" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <input type="email" placeholder="Email" required />
+      <textarea rows="4" placeholder="Message"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    <div class="info">
+      <p>Or Call/WhatsApp: +91-9950840007</p>
+      <p>Office: SHOP NO-8, Kala Market, Vaishali Estate, Gandhi Path West, Jaipur</p>
+    </div>
+  </section>
+
+  <section class="testimonials container">
+    <h2>Client Testimonials</h2>
+    <div class="grid">
+      <div class="card">
+        <p>“Thanks to Bajwa Properties, we found our perfect home within a week. Super responsive and trustworthy!”</p>
+        <h5>— Sandeep Singh, Gurgaon</h5>
+      </div>
+      <div class="card">
+        <p>“They helped me get tenants and handled everything legally. A smooth experience!”</p>
+        <h5>— Neha Sharma, Delhi</h5>
+      </div>
+    </div>
+  </section>
+
+  <section class="blog container">
+    <h2>From Our Blog</h2>
+    <div class="grid">
+      <div class="card">
+        <h4>Tips to Buy Your First Home</h4>
+        <p>Essential checklist and money-saving hacks for first-timers.</p>
+        <a href="#">Read More →</a>
+      </div>
+      <div class="card">
+        <h4>Best Investment Areas in 2025</h4>
+        <p>Which localities promise the highest ROI next year?</p>
+        <a href="#">Read More →</a>
+      </div>
+      <div class="card">
+        <h4>Legal Checklist Before Buying</h4>
+        <p>Key documents & red flags every buyer must know.</p>
+        <a href="#">Read More →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+     CUSTOMER REVIEWS SECTION
+=========================== -->
+<section id="reviews" class="reviews container">
+  <h2>Customer Reviews – Bajwa Properties, Jaipur</h2>
+  <p class="tagline">Delivering Trust. Building Dreams.</p>
+  <div class="reviews-grid"></div>
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 Bajwa Properties Jaipur. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    toggle.addEventListener('click', () => nav.classList.toggle('open'));
+  </script>
+
+</body>
+</html>
